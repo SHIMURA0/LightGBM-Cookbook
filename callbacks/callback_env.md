@@ -15,7 +15,10 @@ class CallbackEnv:
 ```
 1. ```model: Union[Booster, "CVBooster"]```
    
-      - Type Hint: Union[Booster, "CVBooster"] indicates that this attribute can be one of two types: either a Booster object or a CVBooster object.
+      - > Type Hint: Union[Booster, "CVBooster"]
+        > 
+        > indicates that this attribute can be one of two types: either a Booster object or a CVBooster object.
+        
         | Function Used | `env.model` Type | Description |  
         | :--- | :--- | :--- |  
         | `lightgbm.train()` | `Booster` | A single, standard LightGBM model object. |  

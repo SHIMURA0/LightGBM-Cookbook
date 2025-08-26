@@ -16,9 +16,16 @@ class CallbackEnv:
 1. ```model: Union[Booster, "CVBooster"]```
    
       - Type Hint: Union[Booster, "CVBooster"] indicates that this attribute can be one of two types: either a Booster object or a CVBooster object.
+        | Function Used | `env.model` Type | Description |  
+        | :--- | :--- | :--- |  
+        | `lightgbm.train()` | `Booster` | A single, standard LightGBM model object. |  
+        | `lightgbm.cv()` | `CVBooster` | A special wrapper object managing boosters for all CV folds. |  
+
+
       - Description: This is the most powerful attribute. It is a direct reference to the live model object being trained. Any changes or calls made to this object are happening on the actual model.
         - When using lightgbm.train(), env.model will be a Booster object.
         - When using lightgbm.cv(), env.model will be a CVBooster object, which is a wrapper around multiple boosters (one for each fold).
+      
       - Practical Use Cases:
         - Saving the model: env.model.save_model('my_model.txt')
         - Inspecting feature importance: importance = env.model.feature_importance(importance_type='gain')
